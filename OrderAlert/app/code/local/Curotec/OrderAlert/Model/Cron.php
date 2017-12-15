@@ -73,9 +73,11 @@ class Curotec_OrderAlert_Model_Cron
 			}
 		}
 
+		$formatted_diff = $helper->formatDiff($diff);
+
 		if ($order_missed && $missed_interval > 0) {
-			$text = "It has been {$missed_interval} {$unit}s since last order was placed on your Magento store.";
-			$text .= "<br>Last order was placed on: {$created_at}";
+			$text = "There has been no order on your Magento store for last {$formatted_diff}.";
+			$text .= "<br>Last order was placed on: {$created_at}.";
 		    Mage::log($text, null, 'orderalert.log');
 			$this->sendMail($text, $emails_to);
 		}
