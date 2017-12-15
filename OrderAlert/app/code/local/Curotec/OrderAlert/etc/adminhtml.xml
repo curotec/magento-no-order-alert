@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<order_alert_settings translate="title" module="orderalert">
+											<title>Order Alert Settings Section</title>
+											<sort_order>0</sort_order>
+										</order_alert_settings>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

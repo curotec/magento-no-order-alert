@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Curotec_OrderAlert>
+            <version>0.1.0</version>
+        </Curotec_OrderAlert>
+    </modules>
+    <global>
+        <helpers>
+            <orderalert>
+                <class>Curotec_OrderAlert_Helper</class>
+            </orderalert>
+        </helpers>
+        <models>
+            <orderalert>
+                <class>Curotec_OrderAlert_Model</class>
+                <resourceModel>orderalert_mysql4</resourceModel>
+            </orderalert>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <orderalert_checkorders>
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>orderalert/cron::checkOrders</model>
+                </run>
+            </orderalert_checkorders>
+        </jobs>
+    </crontab>
+
+    <default>
+        <order_alert_settings>
+            <general>
+                <enabled>1</enabled>
+                <unit>hour</unit>
+                <interval>1</interval>
+            </general>
+        </order_alert_settings>
+    </default>
+</config>
